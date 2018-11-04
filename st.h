@@ -80,6 +80,8 @@ void die(const char *, ...);
 void redraw(void);
 void draw(void);
 
+void swapcolors(const Arg *);
+
 void printscreen(const Arg *);
 void printsel(const Arg *);
 void sendbreak(const Arg *);
@@ -118,5 +120,6 @@ extern char *worddelimiters;
 extern int allowaltscreen;
 extern char *termname;
 extern unsigned int tabspaces;
+extern int usealtcolors;
 extern unsigned int defaultfg;
 extern unsigned int defaultbg;

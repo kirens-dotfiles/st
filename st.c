@@ -221,6 +221,9 @@ static ssize_t xwrite(int, const char *, size_t);
 /* Globals */
 static Term term;
 static Selection sel;
+
+int usealtcolors = 0; /* 1 to use alternate palette */
+
 static CSIEscape csiescseq;
 static STREscape strescseq;
 static int iofd = 1;
@@ -2556,6 +2559,14 @@ void
 resettitle(void)
 {
 	xsettitle(NULL);
+}
+
+void
+swapcolors(const Arg *dummy)
+{
+	usealtcolors = !usealtcolors;
+	xloadcols();
+	redraw();
 }
 
 void
